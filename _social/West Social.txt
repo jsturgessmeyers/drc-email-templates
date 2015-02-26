@@ -1,0 +1,31 @@
+AR
+F: azcentral
+T: azcentral
+
+DS
+F: thedesertsun
+T: mydesert
+
+GF
+F: greatfallstribune
+T: GFTribune
+
+GJ
+F: RGJmedia
+T: rgj
+
+SC
+F: SalinasCalifornian
+T: salnews
+
+SJ
+F: statesmanjournal
+T: Salem_Statesman
+
+SP
+F:
+T: SpectrumNews
+
+TD-AR
+F: vtdnews
+T: vtdnews

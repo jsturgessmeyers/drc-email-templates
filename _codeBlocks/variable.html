@@ -1,0 +1,152 @@
+%%[
+
+/* ADM VARS */
+Var @PUBLOGO
+Var @PUBNAME
+Var @PUBURL
+Var @PUBURLDISP
+Var @PUBTWITTER
+Var @PUBFB
+Var @PUBRSS
+Var @PUBPHONE
+Var @MARKETAREA
+Var @LOCKUP /* set width to 340 */
+Var @FNAME
+Var @PropFNAME
+
+Set @PUBLOGO = Lookup("RGB_K_W_Logos","K","PUBBRAND",PubBrand)
+/* or Lookup("ATVAL","PUBLOGO72","PubBrand",PubBrand) */
+Set @PUBNAME = Lookup("ATVAL","PUBNAME","PubBrand",PubBrand)
+Set @PUBURL = Lookup("ATVAL","PUBURL","PubBrand",PubBrand)
+Set @PUBURLDISP = Lookup("ATVAL","PUBURLDISP","PubBrand",PubBrand)
+Set @PUBTWITTER = Lookup("ATVAL","TWITTERURL","PubBrand",PubBrand)
+Set @PUBFB = Lookup("ATVAL","FBURL","PubBrand",PubBrand)
+Set @PUBRSS = Lookup("ATVAL","RSSURL","PubBrand",PubBrand)
+Set @PUBPHONE = Lookup("ATVAL","CSPHONE","PubBrand",PubBrand)
+Set @MARKETAREA = Lookup("ATVAL","MARKETAREA","PubBrand",PubBrand)
+Set @LOCKUP = Lookup("ATVAL","LOCKUPC72","PubBrand",PubBrand)
+Set @FNAME = FirstName
+Set @PropFNAME = %%=ProperCase(@FNAME)=%%
+
+/* CUSTOM VARS */
+Var @var01
+Var @var02
+Var @var03
+Var @var04
+Var @var05
+Var @var06
+Var @var07
+Var @var08
+Var @var09
+Var @var10
+
+Set @var01 = Lookup("DX","var01","pubBrand",pubBrand)
+Set @var02 = Lookup("DX","var02","pubBrand",pubBrand)
+Set @var03 = Lookup("DX","var03","pubBrand",pubBrand)
+Set @var04 = Lookup("DX","var04","pubBrand",pubBrand)
+Set @var05 = Lookup("DX","var05","pubBrand",pubBrand)
+Set @var06 = Lookup("DX","var06","pubBrand",pubBrand)
+Set @var07 = Lookup("DX","var07","pubBrand",pubBrand)
+Set @var08 = Lookup("DX","var08","pubBrand",pubBrand)
+Set @var09 = Lookup("DX","var09","pubBrand",pubBrand)
+Set @var10 = Lookup("DX","var10","pubBrand",pubBrand)
+
+]%%
+
+////////////////////////////////////////////////////////////////////////
+
+%%[
+
+/* WI_Consolidated VARS */
+Var @PUBLOGO /* set width to 200 */
+Var @PUBNAME
+Var @PUBNAMEDISP
+Var @PUBNAMEDISP2
+Var @PUBURL
+Var @PUBPHONE
+Var @PUBTWITTER
+Var @PUBFB
+Var @PUBRSS
+Var @LOCKUP /* set width to 340 */
+Var @NAME
+
+Set @PUBLOGO = Lookup("WI_Consolidated_FullPub","PUBLOGO","PUBBRAND",PUBBRAND)
+Set @PUBNAME = Lookup("WI_Consolidated_FullPub","PUBNAME","PUBBRAND",PUBBRAND)
+Set @PUBNAMEDISP = Lookup("WI_Consolidated_FullPub","PUBNAMEDISP","PUBBRAND",PUBBRAND)
+Set @PUBNAMEDISP2 = Lookup("WI_Consolidated_FullPub","PUBNAMEDISP2","PUBBRAND",PUBBRAND)
+Set @PUBURL = Lookup("WI_Consolidated_FullPub","PUBURL","PUBBRAND",PUBBRAND)
+Set @PUBPHONE = Lookup("WI_Consolidated_FullPub","PUBPHONE","PUBBRAND",PUBBRAND)
+Set @PUBTWITTER = Lookup("WI_Consolidated_FullPub","PUBTWITTER","PUBBRAND",PUBBRAND)
+Set @PUBFB = Lookup("WI_Consolidated_FullPub","PUBFB","PUBBRAND",PUBBRAND)
+Set @PUBRSS = Lookup("WI_Consolidated_FullPub","PUBRSS","PUBBRAND",PUBBRAND)
+Set @LOCKUP = Lookup("WI_Consolidated_FullPub","LOCKUP","PUBBRAND",PUBBRAND)
+Set @NAME = FirstName
+
+/* CUSTOM VARS */
+Var @var01
+Var @var02
+Var @var03
+Var @var04
+Var @var05
+Var @var06
+Var @var07
+Var @var08
+Var @var09
+Var @var10
+
+Set @var01 = Lookup("DX","var01","pubBrand",pubBrand)
+Set @var02 = Lookup("DX","var02","pubBrand",pubBrand)
+Set @var03 = Lookup("DX","var03","pubBrand",pubBrand)
+Set @var04 = Lookup("DX","var04","pubBrand",pubBrand)
+Set @var05 = Lookup("DX","var05","pubBrand",pubBrand)
+Set @var06 = Lookup("DX","var06","pubBrand",pubBrand)
+Set @var07 = Lookup("DX","var07","pubBrand",pubBrand)
+Set @var08 = Lookup("DX","var08","pubBrand",pubBrand)
+Set @var09 = Lookup("DX","var09","pubBrand",pubBrand)
+Set @var10 = Lookup("DX","var10","pubBrand",pubBrand)
+
+]%%
+
+////////////////////////////////////////////////////////////////////////
+
+//EXAMPLE OF USE
+<a href="%%=RedirectTo(@PUBURL)=%%" target="_blank"><img src="%%=v(@PUBLOGO)=%%" width="172" height="55" border="0" alt="%%=v(@PUBNAME)=%%" id="logo" /></a>
+
+////////////////////////////////////////////////////////////////////////
+
+MISC
+
+/* concatenate url + other data */
+Set @var = Concat(@PUBURL,"?an=12345")
+
+/* control flow */
+IF [pubBrand] == '1085AL00' THEN
+  set @PUBNAME = "Argus Leader"
+ENDIF
+
+IF (@var == ?) OR (@var <= ?) OR (@var >= ?) OR (@var != ?) THEN
+  do something
+ENDIF
+
+/* drop + 30 */
+%%=Format(DateAdd(Now(), "30","D"), "MM/dd/yyyy")=%%
+
+/* proper case name */
+Var @firstName
+Set @firstName = FirstName
+
+%%=ProperCase(@firstName)=%%
+
+/* check last character in a URL and append path */
+IF Substring(@PUBURL,Length(@PUBURL),"1") == "/" THEN
+  Set @promoURL = Concat(@PUBURL,"X-XX")
+ELSE
+  Set @promoURL = Concat(@PUBURL,"/X-XX")
+ENDIF
+
+/* check for "The" in PUBNAME */
+IF Lowercase(Substring(@PUBNAME,1,3)) == "The" THEN
+  Set @thePubName = Concat("<em>",@PUBNAME,"</em>")
+ELSE
+  Set @thePubName = Concat("the <em>",@PUBNAME,"</em>")
+ENDIF
