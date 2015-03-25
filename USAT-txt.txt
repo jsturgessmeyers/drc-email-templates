@@ -8,12 +8,16 @@ USA TODAY
 
 COPY
 
+SUBSCRIBE NOW
+>> promoURL
+
 --------------------------------------------------
 
 COPY
 
 --------------------------------------------------
-COPY
+SUBSCRIBE NOW
+>> promoURL
 --------------------------------------------------
 
 *Offer expires %%=Format(DateAdd(Now(), "30","D"), "MM/dd/yyyy")=%%. Offer available to new subscribers only. Certain restrictions apply. EZ Pay required. For more details visit our website. Please do not reply to this message. This e-mail message was sent from a notification only address and cannot accept incoming e-mail. If you need USA TODAY assistance, please call 1-800-872-0001 and reference offer promoCode.
