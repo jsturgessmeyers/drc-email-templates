@@ -11,8 +11,6 @@ Var @PUBRSS
 Var @PUBPHONE
 Var @MARKETAREA
 Var @LOCKUP /* set width to 340 */
-Var @FNAME
-Var @PropFNAME
 
 Set @PUBLOGO = Lookup("RGB_K_W_Logos","K","PUBBRAND",PubBrand)
 /* or Lookup("ATVAL","PUBLOGO72","PubBrand",PubBrand) */
@@ -25,8 +23,6 @@ Set @PUBRSS = Lookup("ATVAL","RSSURL","PubBrand",PubBrand)
 Set @PUBPHONE = Lookup("ATVAL","CSPHONE","PubBrand",PubBrand)
 Set @MARKETAREA = Lookup("ATVAL","MARKETAREA","PubBrand",PubBrand)
 Set @LOCKUP = Lookup("ATVAL","LOCKUPC72","PubBrand",PubBrand)
-Set @FNAME = FirstName
-Set @PropFNAME = %%=ProperCase(@FNAME)=%%
 
 /* CUSTOM VARS */
 Var @var01
